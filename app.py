@@ -786,7 +786,8 @@ def logout():
 
     return redirect('/')
 
-
+with app.app_context():
+    db.create_all()
 # =====================================================
 # CREATE DATABASE
 # =====================================================

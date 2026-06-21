@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}
+All Requests
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">All Help Requests</h2>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Disaster</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for req in requests %}
+
+        <tr>
+
+            <td>{{ req.id }}</td>
+            <td>{{ req.name }}</td>
+            <td>{{ req.location }}</td>
+            <td>{{ req.disaster_type }}</td>
+            <td>{{ req.priority }}</td>
+
+            <td>
+
+                {% if req.status == "Pending" %}
+                    <span class="badge bg-warning text-dark">
+                        Pending
+                    </span>
+
+                {% else %}
+                    <span class="badge bg-success">
+                        Completed
+                    </span>
+                {% endif %}
+
+            </td>
+
+            <td>
+
+                {% if role == "Admin" %}
+
+                    <a href="/complete_request/{{ req.id }}"
+                       class="btn btn-success btn-sm">
+
+                       Complete
+
+                    </a>
+
+                    <a href="/delete_request/{{ req.id }}"
+                       class="btn btn-danger btn-sm">
+
+                       Delete
+
+                    </a>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

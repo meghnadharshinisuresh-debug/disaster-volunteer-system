@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Task
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h2>Create Task</h2>
+
+        <form method="POST">
+
+            <label class="form-label">
+                Select Disaster
+            </label>
+
+            <select
+                name="disaster_id"
+                class="form-control mb-3"
+                required>
+
+                {% for disaster in disasters %}
+
+                <option value="{{ disaster.id }}">
+                    {{ disaster.title }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <input
+                type="text"
+                name="task_name"
+                class="form-control mb-3"
+                placeholder="Task Name"
+                required>
+
+            <textarea
+                name="description"
+                class="form-control mb-3"
+                rows="4"
+                placeholder="Task Description"
+                required></textarea>
+
+            <button
+                class="btn btn-success">
+
+                Create Task
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

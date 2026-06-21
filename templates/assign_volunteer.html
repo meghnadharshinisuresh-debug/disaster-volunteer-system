@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+Assign Volunteer
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h2>
+            Assign Volunteer
+        </h2>
+
+        <h5 class="mb-4">
+            Task: {{ task.task_name }}
+        </h5>
+
+        <form method="POST">
+
+            <label class="form-label">
+
+                Select Volunteer
+
+            </label>
+
+            <select
+                name="volunteer_name"
+                class="form-control mb-3">
+
+                {% for volunteer in volunteers %}
+
+                <option>
+
+                    {{ volunteer.name }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <button
+                class="btn btn-primary">
+
+                Assign Volunteer
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

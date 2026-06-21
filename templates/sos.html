@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}
+Emergency SOS
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+```
+<div class="card shadow-lg p-5">
+
+    <h1 class="text-center mb-4 text-danger">
+        🚨 Emergency SOS Alert
+    </h1>
+
+    <p class="text-center text-muted">
+        Press SOS to instantly send your GPS location to volunteers.
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="hidden"
+            id="latitude"
+            name="latitude">
+
+        <input
+            type="hidden"
+            id="longitude"
+            name="longitude">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Phone Number
+            </label>
+
+            <input
+                type="text"
+                name="phone"
+                class="form-control"
+                required>
+
+        </div>
+
+        <div class="mb-4">
+
+            <label class="form-label">
+                Emergency Type
+            </label>
+
+            <select
+                name="emergency_type"
+                class="form-select">
+
+                <option>Flood</option>
+                <option>Fire</option>
+                <option>Earthquake</option>
+                <option>Cyclone</option>
+                <option>Medical Emergency</option>
+                <option>Landslide</option>
+
+            </select>
+
+        </div>
+
+        <div class="alert alert-info">
+
+            📍 GPS location will be captured automatically.
+
+        </div>
+
+        <button
+            type="submit"
+            class="btn btn-danger btn-lg w-100">
+
+            🚨 SEND SOS ALERT
+
+        </button>
+
+    </form>
+
+</div>
+
+
+</div>
+
+<script>
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+    console.log("Latitude:", position.coords.latitude);
+    console.log("Longitude:", position.coords.longitude);
+
+    document.getElementById("latitude").value =
+    position.coords.latitude;
+
+    document.getElementById("longitude").value =
+    position.coords.longitude;
+
+},
+
+function(error){
+
+    console.log(error);
+
+    alert("Location access denied");
+
+}
+
+);
+
+</script>
+{% endblock %}

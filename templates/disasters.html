@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disasters
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+
+<h2 class="mb-4">
+    Disaster Management
+</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Title</th>
+
+            <th>Type</th>
+
+            <th>Location</th>
+
+            <th>Status</th>
+
+            <th>Action</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for disaster in disasters %}
+
+        <tr>
+
+            <td>{{ disaster.id }}</td>
+
+            <td>{{ disaster.title }}</td>
+
+            <td>{{ disaster.disaster_type }}</td>
+
+            <td>{{ disaster.location }}</td>
+
+            <td>
+
+                <span class="badge bg-danger">
+
+                    {{ disaster.status }}
+
+                </span>
+
+            </td>
+
+            <td>
+
+                <a href="/delete_disaster/{{ disaster.id }}"
+                   class="btn btn-danger btn-sm">
+
+                    Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+
+</div>
+
+{% endblock %}

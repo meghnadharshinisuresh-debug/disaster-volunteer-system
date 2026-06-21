@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+SOS Alerts
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<h2 class="heading mb-4">
+Emergency SOS Alerts
+</h2>
+
+<div class="card shadow-card p-4">
+
+<table class="table table-bordered table-hover">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Phone</th>
+
+<th>Emergency</th>
+
+<th>Status</th>
+
+<th>Assigned To</th>
+
+<th>Location</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for report in reports %}
+
+<tr>
+
+<td>{{ report.id }}</td>
+
+<td>{{ report.name }}</td>
+
+<td>{{ report.phone }}</td>
+
+<td>{{ report.emergency_type }}</td>
+
+<td>{{ report.status }}</td>
+
+<td>
+
+{% if report.assigned_to %}
+{{ report.assigned_to }}
+{% else %}
+Not Assigned
+{% endif %}
+
+</td>
+
+<td>
+
+<a
+href="https://www.google.com/maps?q={{ report.latitude }},{{ report.longitude }}"
+target="_blank"
+class="btn btn-primary btn-sm">
+
+📍 View Map
+
+</a>
+
+</td>
+
+<td>
+
+{% if report.status == "Pending" %}
+
+<a
+href="/assign_sos/{{ report.id }}"
+class="btn btn-warning btn-sm">
+
+Assign To Me
+
+</a>
+
+{% endif %}
+
+{% if report.status == "In Progress" %}
+
+<a
+href="/resolve_sos/{{ report.id }}"
+class="btn btn-success btn-sm">
+
+Mark Resolved
+
+</a>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

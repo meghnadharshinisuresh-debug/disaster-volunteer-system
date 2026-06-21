@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">
+        Welcome {{ user }}
+    </h1>
+
+    <!-- STATISTICS -->
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow p-4">
+                <h5>Total Users</h5>
+                <h1>{{ total_users }}</h1>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4">
+                <h5>Help Requests</h5>
+                <h1>{{ total_requests }}</h1>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4">
+                <h5>Active Disasters</h5>
+                <h1>{{ active_disasters }}</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-4 g-4">
+
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h5>Pending Tasks</h5>
+                <h1>{{ pending_tasks }}</h1>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h5>Completed Tasks</h5>
+                <h1>{{ completed_tasks }}</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="card shadow mt-5 p-4">
+
+        <h3 class="mb-4">
+            Quick Actions
+        </h3>
+
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <a href="/help_request"
+                   class="btn btn-primary w-100">
+                    Create Help Request
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/view_sos"
+                   class="btn btn-danger w-100">
+                    View SOS Alerts
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/create_disaster"
+                   class="btn btn-warning w-100">
+                    Create Disaster
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/disasters"
+                   class="btn btn-info w-100">
+                    View Disasters
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/create_task"
+                   class="btn btn-success w-100">
+                    Create Task
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/tasks"
+                   class="btn btn-dark w-100">
+                    View Tasks
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/all_requests"
+                   class="btn btn-secondary w-100">
+                    View Requests
+                </a>
+            </div>
+
+            {% if role == "Admin" %}
+            <div class="col-md-3">
+                <a href="/users"
+                   class="btn btn-primary w-100">
+                    Manage Users
+                </a>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <hr class="my-4">
+
+        <a href="/logout"
+           class="btn btn-danger w-100">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

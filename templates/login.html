@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="row justify-content-center align-items-center vh-100">
+
+<div class="col-md-5">
+
+<div class="card card-form p-5">
+
+<h2 class="text-center heading mb-4">
+Volunteer Login
+</h2>
+
+<form method="POST">
+
+<input type="email"
+name="email"
+class="form-control mb-3"
+placeholder="Email"
+required>
+
+<input type="password"
+name="password"
+class="form-control mb-4"
+placeholder="Password"
+required>
+
+<button class="btn btn-primary w-100">
+Login
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

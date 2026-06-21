@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<h1 class="hero-title">
+Emergency Volunteer Coordination Platform
+</h1>
+
+<p class="hero-text">
+A cloud-based platform for disaster response, volunteer coordination,
+real-time monitoring and emergency assistance.
+</p>
+
+<a href="/login" class="btn btn-primary btn-lg mt-3">
+Login
+</a>
+
+<a href="/register"
+class="btn btn-outline-primary btn-lg mt-3 ms-2">
+Register
+</a>
+<a href="/sos"
+class="btn btn-danger btn-lg mt-3">
+
+🚨 Emergency SOS
+
+</a>
+</div>
+
+<div class="col-md-6 text-center">
+
+<img src="https://img.freepik.com/free-vector/cloud-computing-concept-illustration_114360-1248.jpg"
+     class="img-fluid"
+     width="500"
+     alt="Cloud Monitoring">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="container mb-5">
+
+<h2 class="text-center heading mb-5">
+System Features
+</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card shadow-card p-4 text-center">
+
+<h4>Volunteer Management</h4>
+
+<p>
+Manage volunteers efficiently during disasters.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow-card p-4 text-center">
+
+<h4>Emergency Requests</h4>
+
+<p>
+Citizens can quickly submit emergency requests.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow-card p-4 text-center">
+
+<h4>Cloud Monitoring</h4>
+
+<p>
+AWS-based monitoring ensures system availability.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

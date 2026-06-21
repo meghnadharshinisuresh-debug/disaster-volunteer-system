@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}
+Help Request
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<div class="card card-form p-5">
+
+<h2 class="heading text-center mb-4">
+Emergency Help Request
+</h2>
+
+<form method="POST">
+
+<input type="text"
+name="name"
+class="form-control mb-3"
+placeholder="Full Name"
+required>
+
+<input type="text"
+name="phone"
+class="form-control mb-3"
+placeholder="Phone Number"
+required>
+
+<input type="text"
+name="location"
+class="form-control mb-3"
+placeholder="Location"
+required>
+
+<select name="disaster_type"
+class="form-select mb-3">
+
+<option>Flood</option>
+<option>Earthquake</option>
+<option>Cyclone</option>
+<option>Fire</option>
+
+</select>
+
+<select name="priority"
+class="form-select mb-3">
+
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+
+</select>
+
+<input type="number"
+name="people_affected"
+class="form-control mb-3"
+placeholder="People Affected">
+
+<textarea
+name="description"
+class="form-control mb-4"
+rows="4"
+placeholder="Describe Situation">
+</textarea>
+
+<button class="btn btn-primary w-100">
+Submit Request
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}
